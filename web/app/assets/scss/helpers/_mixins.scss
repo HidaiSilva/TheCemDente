@@ -1,0 +1,68 @@
+@mixin user-select() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin clear() {
+    clear: both;
+
+    &:after,
+    &:before {
+        clear: both;
+        display: block;
+        content: "";
+    }
+}
+
+@mixin box-sizing() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+     @include transform(rotate(#{$deg}deg));
+}
+
+// translate
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+}
+
+@mixin transition($x, $y) {
+	-webkit-transition: $x $y;
+	-moz-transition: $x $y;
+	-ms-transition: $x $y;
+	-o-transition: $x $y;
+	transition: $x $y;
+}
+
+@mixin radial($color1, $color2) {
+	background: -moz-radial-gradient(center, ellipse cover, $color1 1%, $color2 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, $color1), color-stop(100%, $color2));
+	background: -webkit-radial-gradient(center, ellipse cover, $color1 1%, $color2 100%);
+	background: -o-radial-gradient(center, ellipse cover, $color1 1%, $color2 100%);
+	background: -ms-radial-gradient(center, ellipse cover, $color1 1%, $color2 100%);
+	background: radial-gradient(ellipse at center, $color1 1%, $color2 100%);
+}

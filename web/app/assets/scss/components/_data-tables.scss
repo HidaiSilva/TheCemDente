@@ -1,0 +1,207 @@
+table.dataTable {
+    margin: 20px 0;
+
+    thead {
+        [class*="sorting"] {
+            background-position: center right 25px;
+        }
+    }
+
+    &.no-footer {
+        border-bottom: 1px solid #F5F5F5;
+    }
+}
+
+.dataTables_length,
+.dataTables_filter {
+    display: inline-block;
+    padding: 20px 30px;
+
+    label {
+        font-weight: normal;
+    }
+
+    input,
+    select {
+        border: 1px solid #eee;
+        color : #000;
+        height: 35px;
+        padding: 10px 15px;
+        font-size: 1em;
+        border-radius: 2px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        line-height: 100%;
+        background-color: #fff;
+    }
+}
+
+.dataTables_length {
+    float: right !important;
+    margin-top: 20px;
+    select {
+        margin: 0 8px;
+    }
+
+    @media (max-width: $screen-phone-small-max) {
+        display: none;
+    }
+}
+
+.dataTables_filter {
+    float: left;
+    label {
+        position: relative;
+        text-align: left;
+
+        &:after {
+            font-family: $font-icon-md;
+            content: '\f1c3';
+            position: absolute;
+            font-size: 18px;
+            right: 15px;
+            top: 24px;
+        }
+
+        .form-control {
+            padding-right: 35px;
+            width: 100% !important;
+            margin: 0 !important;
+        }
+
+    }
+}
+
+.dataTables_wrapper {
+    .dataTables_filter {
+        float: left;
+        padding-left: 0;
+        width: 40%;
+
+        @media (max-width: $screen-phone-small-max) {
+            width: 100%;
+        }
+
+        input {
+            margin: 0 !important
+        }
+
+        label,
+        input {
+            width: 100%;
+        }
+    }
+
+    .dataTables_paginate {
+        .paginate_button {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #cecece;
+            vertical-align: top;
+            color: #000!important;
+            margin: 0 2px;
+            border: 0 !important;
+            line-height: 21px;
+            box-shadow: none !important;
+            padding: 7px 8px;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #cecece;
+                color: #000 !important;
+            }
+
+            &.current {
+                &, &:hover, &:focus {
+                    background: #cecece;
+                    color: #000 !important;
+                }
+            }
+
+            &.previous,
+            &.next {
+                font-size: 0;
+                padding: 0;
+
+                &:before {
+                    content: '';
+                    font-size: 20px;
+                    line-height: 35px;
+                }
+            }
+
+            &.previous:before {
+                font-family: $font-icon-md;
+                content: '\f2fa';
+            }
+
+            &.next:before {
+                font-family: $font-icon-md;
+                content: '\f2fb';
+            }
+        }
+    }
+}
+
+.dataTables_info,
+.dataTables_paginate {
+    padding: 30px;
+}
+
+.dataTables_info {
+    @media(max-width: $screen-phone-small-max) {
+        display: none;
+    }
+}
+
+.pagination {
+    border-radius: 0;
+    
+    & > li {
+        margin: 0 2px;
+        display: inline-block;
+        vertical-align: top;
+        
+        & > a,
+        & > span {
+            border-radius: 50% !important;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1;
+            position: relative;
+            cursor: pointer;
+            background-clip: padding-box;
+            
+            & > .zmdi {
+                font-size: 22px;
+                line-height: 39px;
+            }
+        }
+    }
+}
+
+
+/*-------------------------
+    Listview Pagination
+--------------------------*/
+.lg-pagination {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+
+/*-------------------------
+    Pager
+--------------------------*/
+.pager li > a, .pager li > span {
+    padding: 5px 10px 6px;
+    color: red;
+}

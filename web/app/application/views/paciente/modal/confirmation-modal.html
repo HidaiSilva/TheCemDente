@@ -1,0 +1,25 @@
+<form name="form">
+	<div class="modal-header">
+		<button type="button" class="close" data-ng-click="pacienteConfirmationCtrl.cancel()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	
+		<h4 class="modal-title">
+			Excluir paciente
+		</h4>
+	</div>
+	<div class="modal-body">
+		<p>Você selecionou para excluir: <strong>{{pacienteConfirmationCtrl.pacienteElement.nome}}</strong></p>
+		<p>clique em excluir para continuar, ou clique em cancelar para retornar para a página. </p>
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="pacienteConfirmationCtrl.cancel()">
+			Cancelar
+		</button>
+		<button type="button" class="btn btn-danger" data-dismiss="modal" data-ng-click="pacienteConfirmationCtrl.delete()">
+			<i class="glyphicon glyphicon-trash"></i>
+			Excluir
+		</button>
+	</div>
+</form>

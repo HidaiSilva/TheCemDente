@@ -1,0 +1,98 @@
+<div class="input-search">
+	<div class="input-group">
+		<div class="input-group-btn">
+			<button type="button" class="btn dropdown-toggle"
+				data-toggle="dropdown">
+				<span id="search_concept"> {{'button.filter' | translate}} </span> <span
+					class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+                <li ng-repeat="item in filterController.filterSelectedItems">
+                    <a id="_{{item.name}}" ng-show="item.show==0" style="color:#CCCCCC ">
+                   {{translator+item.name | translate}}
+               </a>
+                    <a id="_{{item.name}}" ng-click="setFilterSelected(item)" ng-show="item.show==1">
+                   {{translator+item.name | translate}}
+               </a>
+                </li>
+            </ul>
+		</div>
+
+		<!-- BEGIN - Input depend on select dropbox -->
+		<input type="text" data-ng-model="filterSelectedValue"
+			class="form-control" id="filterBy"
+			ng-show="filterSelected.type=='text'"
+			placeholder="{{translator+filterSelected.name | translate}}"
+			ng-enter="applyFilter()" focus-on-show/> 
+		<input type="text" data-ng-model="filterSelectedValue"
+			class="form-control" id="filterByMask"
+			ng-show="filterSelected.type=='dateWithMask'"
+			mask="99/99/9999"
+			placeholder="{{translator+filterSelected.name | translate}}"
+			ng-enter="applyFilter()" focus-on-show/>
+			
+        <ui-select id="stateFilter" data-ng-model="selected.value"
+        	ng-show="filterSelected.type=='selectStates'" on-select="applyFilter()">
+		    <ui-select-match>
+		        <span ng-bind="$select.selected.estado"></span>
+		    </ui-select-match>
+		    <ui-select-choices repeat="state in (states | filter: $select.search)">
+		        <span ng-bind="state.estado"></span>
+		    </ui-select-choices>
+		</ui-select>
+
+		<ui-select id="filterActiveInactive" ng-show="filterSelected.type=='activeInactive'" 
+			data-ng-model="statusSelected.value" on-select="applyFilter()">
+			<ui-select-match>
+				<span ng-bind="$select.selected.status"></span>
+			</ui-select-match>
+			<ui-select-choices repeat="actInact in (status | filter: $select.search)">
+				<span ng-bind="actInact.status"></span>
+			</ui-select-choices>
+		</ui-select>
+		
+		<!-- <select id="filterActiveInactive" class="form-control form-control-select"
+			ng-show="filterSelected.type=='activeInactive'" data-ng-model="filterSelectedValue" ng-change="applyFilter()">
+			<option value="1">{{'common.active.vTrue' | translate}}</option>
+			<option value="0">{{'common.active.vFalse' | translate}}</option>
+		</select> -->
+		
+		<select id="filterStatusPendency" class="form-control form-control-select"
+			ng-show="filterSelected.type=='statusPendency'" data-ng-model="filterSelectedValue" ng-change="applyFilter()">
+			<option ng-repeat="p in filterController.statusPendencyValue" value="{{p.value}}">{{p.name | translate}}</option>
+		</select>
+		
+		<select id="filterAlertPendency" class="form-control form-control-select"
+			ng-show="filterSelected.type=='alertPendency'" data-ng-model="filterSelectedValue" ng-change="applyFilter()">
+			<option value="pendencyAlert.priority">{{'pendency.filter.pendencyAlert.priority' | translate}}</option>
+			<option value="pendencyAlert.extended">{{'pendency.filter.pendencyAlert.extended' | translate}}</option>
+			<option value="pendencyAlert.signifChange">{{'pendency.filter.pendencyAlert.signifChange' | translate}}</option>
+			<option value="pendencyAlert.techUnvbl">{{'pendency.filter.pendencyAlert.techUnvbl' | translate}}</option>
+		</select>
+		<!-- END - Input depend on select dropbox -->
+
+		<!-- Showing the filter already applied -->
+		<span class="input-group-btn"
+			ng-hide="filterSelected==undefined || filterSelected.type=='null'">
+			<button class="btn btn-default btn-search checkEnable" type="button"
+				ng-click="applyFilter()"
+			 	data-ng-disabled="!filterSelectedValue">
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+		</span>
+
+	</div>
+</div>
+
+<div class="filter-search filter-search-apply"
+	ng-show="filterApplyed.length>0">
+	<span class="filter-search-label"> {{'common.filter' | translate}} ({{filterApplyed.length}}) </span>
+	<div class="filter-search-result">
+		<span class="filter-search-result-val" ng-repeat="val in filterApplyed">
+			{{translator+val.name | translate}}: <strong>{{val.value}}</strong>
+			<i class="filter-search-result-remove glyphicon glyphicon-remove"
+			uib-tooltip="{{'common.filterRemove' | translate}}"
+			ng-click="deleteFilterItem($index)"></i>
+		</span>
+	</div>
+</div>

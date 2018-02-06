@@ -1,0 +1,51 @@
+<div ng-include="'application/views/templates/header.html'"></div>
+<div ng-include="'application/views/templates/aside.html'"></div>
+
+<main>
+	<div class="container-fluid home-screen">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="">{{'home.welcome' | translate}}, <span class="capitalize">{{actualUser}}</span>!</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a href="">
+					<div class="card green-card">
+						<p class="text-center"><i class="fa fa-tachometer" aria-hidden="true"></i></p>
+						<p class="text-center">{{'home.performance' | translate}}</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="">
+					<div class="card blue-card">
+						<p class="text-center"><i class="fa fa-line-chart" aria-hidden="true"></i></p>
+						<p class="text-center">{{'home.analytics' | translate}}</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="#!/users">
+					<div class="card red-card">
+						<p class="text-center"><i class="fa fa-user-o" aria-hidden="true"></i></p>
+						<p class="text-center">{{'home.user' | translate}}</p>
+					</div>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3">
+				<a href="">
+					<div class="card orange-card">
+						<p class="text-center"><i class="fa fa-calendar-o" aria-hidden="true"></i></p>
+						<p class="text-center">{{'home.calendar' | translate}}</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="company-logo"></p>
+			</div>
+		</div>
+	</div>
+</main>

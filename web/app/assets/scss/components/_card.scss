@@ -1,0 +1,361 @@
+.card {
+    background: #FFF;
+    padding: 16px 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 24px;
+    position: relative;
+    @include clear();
+    @media (min-width: $screen-tablet-min) {
+        padding: 16px 24px;
+    }
+    &.nopadding {
+        .card-title {
+            padding: 16px 24px 0;
+            margin: 0 0 16px;
+        }
+        .search-col {
+            padding: 16px 24px;
+        }
+    }
+    .card-body {
+        padding: 24px 24px 12px;
+        &+.card-action {
+            padding-top: 0
+        }
+    }
+    .card-body-form {
+        padding: 16px 0;
+    }
+    .card-action {
+        padding: 24px;
+        clear: both;
+        .btn-default {
+            border-color: #FFF;
+        }
+        .btn+.btn {
+            margin-left: 14px;
+        }
+    }
+    .form-control {
+        border-color: #E6E6E6;
+        border-width: 2px;
+        &:focus {
+            border-color: $green;
+            box-shadow: none;
+        }
+    }
+    .card-title {
+        font-size: 18px;
+        color: #4C4C4C;
+        font-weight: bold;
+        margin: 0;
+        &.card-title-categoria {
+            font-size: 18px;
+        }
+        &.card-title-ellipsis {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            overflow: hidden;
+        }
+        &[data-toggle="collapse"] {
+            cursor: pointer;
+            @include user-select();
+            display: inline-block;
+            transition: color 0.2s ease;
+            &:hover {
+                color: #4285f4;
+            }
+            &:after {
+                font-size: 12px;
+                transform: rotate(0);
+                transition: transform 0.2s ease;
+                display: inline-block;
+                padding-left: 4px;
+                font-family: 'Glyphicons Halflings';
+                content: "\e114";
+            }
+        }
+        &[aria-expanded="true"] {
+            &:after {
+                transform: rotate(180deg)
+            }
+        }
+    }
+    .table {
+        margin-bottom: 0;
+    }
+    .nav-tabs {
+        border-bottom: 2px solid #eee;
+        margin: 0 24px;
+    }
+}
+
+.form-title {
+    font-size: 16px;
+    border-bottom: 2px solid #EEE;
+    padding: 12px 0 4px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.card-search {
+    .card {
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.2s ease;
+        &:hover {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.30);
+            .card-action-btn {
+                a {
+                    color: #747474;
+                }
+            }
+            .card-btn-check {
+                opacity: 10;
+            }
+        }
+        &.active {
+            border-color: #6f6f6f;
+            .card-btn-check {
+                background-color: #6f6f6f;
+                color: #FFF;
+                opacity: 10;
+            }
+        }
+    }
+    .card-body {
+        padding: 24px;
+    }
+    .card-title {
+        font-size: 22px;
+        margin: 0;
+        &.card-title-ellipsis {
+            width: 68%;
+        }
+    }
+    a.card-title {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .card-search-box {
+        position: relative;
+        float: right;
+        overflow: hidden;
+        height: 120px;
+        width: 120px;
+        margin: 16px;
+    }
+    .card-search-img {
+        height: 120px;
+        background-color: #BDBDBD;
+        width: 120px;
+        transition: all 0.3s ease;
+        &:hover {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    }
+    .card-description {
+        line-height: 16px;
+        margin: 6px 0 8px;
+        font-size: 15px;
+    }
+    .card-info {
+        padding-left: 26px;
+        position: relative;
+        font-size: 14px;
+        margin-top: 16px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &.location {
+            font-weight: bold;
+            margin: 0;
+            .card-info-icon {
+                font-size: 18px;
+                height: 30px;
+                padding: 3px 0;
+            }
+        }
+        .card-info-icon {
+            position: absolute;
+            left: -2px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            line-height: normal;
+            font-size: 16px;
+            height: 24px;
+            padding: 3px 0;
+            &.material-icons {
+                font-size: 18px;
+                left: -4px;
+            }
+        }
+        .card-info-name {
+            width: 50px;
+            display: inline-block;
+            font-weight: normal;
+        }
+    }
+    .card-btn-check {
+        &.btn {
+            opacity: 0;
+            background: #FFF;
+            font-size: 12px;
+            box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+            width: 28px;
+            height: 28px;
+            box-sizing: border-box;
+            padding: 2px 0;
+            position: absolute;
+            left: -14px;
+            top: -14px;
+        }
+    }
+}
+
+.pg-machine {
+    .card-body {
+        position: relative;
+        width: calc(100% - 120px);
+    }
+    .card-machine-status {
+        position: absolute;
+        right: 32px;
+        top: 16px;
+    }
+}
+
+.pg-single-machine {
+    .table {
+        border: 1px solid #eee;
+    }
+    .pg-single-machine-info {
+        margin-bottom: 24px;
+    }
+    .img-responsive {
+        border-radius: 2px;
+    }
+    .title {
+        padding: 12px 0 0;
+    }
+}
+
+.card-action-btn {
+    clear: both;
+    padding: 12px 10px;
+    font-size: 18px;
+    text-align: right;
+    a {
+        color: #747474;
+        color: #fff;
+        margin: 0 14px;
+        display: inline-block;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.card-label {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.pg-active {
+    .card-info-name {
+        display: none !important;
+    }
+    .card-title {
+        max-width: 68%;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.pg-software-card {
+    .card-search {
+        .card-info-name {
+            width: 100px;
+        }
+        .card-info {
+            font-weight: bold;
+        }
+    }
+}
+
+.input-search {
+	float: left;
+	padding: 0 8px;
+    margin: 0 0 18px;
+    position: relative;
+	width: 100%;
+    .icon-search {
+        font-size: 14px;
+        position: absolute;
+        top: 36px;
+        right: 16px;
+        &[ng-click] {
+            cursor: pointer;
+        }
+    }
+}
+
+.filter-search{
+    clear: both;
+    margin: 8px;
+
+
+    .filter-search-result{
+        border: 2px dashed #808080;
+        border-radius: 4px;
+        clear: both;
+        margin: 8px 0;
+        padding: 5px 0;
+    }    
+    .filter-search-result-val{
+        background-color: #4db6ac;
+        border-radius: 4px;
+        color: #fff;
+        margin: 0 5px;
+        padding: 3px;
+    }
+    .filter-search-result-remove{
+        cursor : pointer;
+        font-size: 12px;
+    }
+    
+}
+
+
+.pg-version-card,
+.pg-ative-software-card {
+    .card {
+        .card-body {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.pg-version-card {
+    .card-search {
+        .card-info .card-info-name {
+            width: 80px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .input-search {
+		padding: 0;
+        width: 40%;
+    }
+}

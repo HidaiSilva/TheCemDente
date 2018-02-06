@@ -1,0 +1,58 @@
+<!--Tem senha? Perfil?-->
+<div class="register">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="title">{{'register.title' | translate}}</h1>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="row">
+				<form name="userForm" class=" user-register" data-ng-submit="save()" ng-enter="save()">
+					<div class="col-xs-12 col-md-push-3 col-md-6 form">
+						<div class="form-group">
+							<label for="name">{{'user.name' | translate}}:</label> 
+							<input type="text" class="form-control" name="name" ng-model="user.fullName" required> 
+								<span 	ng-show="userForm.name.$touched && userForm.name.$error.required" class="form-control alert-danger"> 
+									{{'user.name' | translate}}{{'common.isRequired' | translate}}
+								</span>
+						</div>
+						<div class="form-group">
+							<label for="login">{{'user.login' | translate}}:</label> 
+							<input type="text" class="form-control" name="login" ng-model="user.userName" required> 
+							<span ng-show="userForm.login.$touched && userForm.login.$error.required" class="form-control alert-danger"> 
+								{{'user.login' | translate}}{{'common.isRequired' | translate}} 
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="email">{{'user.email' | translate}}:</label> 
+							<input type="email" class="form-control" name="email" ng-model="user.email" required> 
+							<span ng-show="userForm.email.$touched && userForm.email.$error.required" class="form-control alert-danger">
+								 {{'user.email' | translate}}{{'common.isRequired' | translate}}
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="user_roles">{{'user.role' | translate}}:</label> 
+							<select id="user_roles" single class="form-control" data-ng-model="user.role" placeholder-text-multiple="'Selecione o perfil'" ng-options="(role | uppercase) as role for role in roles"></select>								
+						</div>
+						<label for="year" class="control-label input-group">{{'user.status' | translate}}</label>
+						<div class="row">
+							<div class="btn-group col-xs-12" >
+								<label class="btn col-xs-6 btn-default btn-radio"  ng-class="{'active': user.status == 'A'}"> 
+									<input type="radio" data-ng-model="user.status" value="A">
+									{{'user.active.vTrue' | translate}}
+								</label> 
+								<label class="btn col-xs-6 btn-default btn-radio" ng-class="{'active': user.status == 'I'}">
+									<input type="radio" data-ng-model="user.status" value="I">
+									{{'user.active.vFalse' | translate}}
+								</label>
+							</div>
+						</div>
+						<input type="submit" value="{{'user.submit' | translate}}" class="col-xs-12 btn btn-primary btn-lg">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

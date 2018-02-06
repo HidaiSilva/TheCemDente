@@ -1,0 +1,53 @@
+.hide-phone {
+    display: none;
+    @media (min-width: $screen-phone-min) {
+        display: table-cell;
+    }
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.table-layout {
+    table-layout: inherit;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.margin-left {
+    margin-left: 16px !important;
+}
+
+.margin-bottom {
+    margin-bottom: 24px !important;
+}
+
+.padding-top-none {
+    padding-top: 0 !important
+}
+
+.row-vertical-middle {
+    font-size: 0;
+    [class^='col-'] {
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+}
+
+hr.form-hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 95%;
+}

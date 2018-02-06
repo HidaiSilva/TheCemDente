@@ -1,0 +1,44 @@
+.list-select {
+	margin: 0;
+
+	.list-select-title {
+		padding: 0 24px 10px;
+		display: block;
+	}
+
+	.list-select-head {
+		font-size: 14px;
+		padding: 10px;
+		padding-left: 66px;
+		font-weight: bold;
+	}
+
+	li {
+		margin: 0;
+		padding-left: 24px;
+
+		&:not(.list-select-head):nth-of-type(even) {
+			background-color: #f4f4f4;
+		}
+
+		&.active {
+			background-color: #E0E0E0;
+		}
+	}
+
+	.checkbox-bt,
+	.radio-bt {
+		margin: 0;
+
+		label {
+			display: block;
+			padding: 10px;
+			padding-left: 42px;
+			@include user-select();
+
+			.box {
+				top: 12px;
+			}
+		}
+	}
+}

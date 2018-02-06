@@ -1,0 +1,18 @@
+// HEADER
+$header-height: 60px;
+
+$font: 'Arial Narrow', arial;
+
+@font-face {
+    font-family: 'Material-Design-Iconic-Font';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Material-Design-Iconic-Font.eot'); /* IE9 Compat Modes */
+    src: local('Montserrat'), local('Material-Design-Iconic-Font'),
+         url('../fonts/Material-Design-Iconic-Font.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Material-Design-Iconic-Font.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/Material-Design-Iconic-Font.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Material-Design-Iconic-Font.ttf') format('truetype'), /* Safari, Android, iOS */
+  }
+
+$font-icon-md:              'Material-Design-Iconic-Font';

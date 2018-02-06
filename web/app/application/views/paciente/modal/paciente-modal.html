@@ -1,0 +1,81 @@
+<form name="form" novalidate data-ng-submit="save()">
+    <div class="modal-header">
+        <h2 class="modal-title">
+            {{ (pacienteModal.id == null ? 'common.insert' : 'common.edit') | translate }} paciente
+        </h2>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <label>
+                    <strong>Nome</strong>
+                </label>
+                <input name="nome" type="text" placeholder="Nome" data-ng-model="pacienteModal.nome" maxlength="50" class="form-control"
+                    autofocus="autofocus" required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>RG</strong>
+                </label>
+                <input name="rg" type="text" mask="99.999.999-*" placeholder="RG" data-ng-model="pacienteModal.rg" maxlength="20" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>CPF</strong>
+                </label>
+                <input name="cpf" type="text" mask="999.999.999-99" placeholder="CPF" data-ng-model="pacienteModal.cpf" maxlength="20" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>Endereço</strong>
+                </label>
+                <input name="endereco" type="text" restrict="reject" placeholder="Endereço" data-ng-model="pacienteModal.endereco" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>Nº</strong>
+                </label>
+                <input name="numero" type="tel" restrict="reject" placeholder="Endereço" data-ng-model="pacienteModal.numero" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>Bairro</strong>
+                </label>
+                <input name="bairro" type="text" restrict="reject" placeholder="Bairro" data-ng-model="pacienteModal.bairro" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12 col-md-6">
+                <label>
+                    <strong>Cidade</strong>
+                </label>
+                <input name="cidade" type="text" restrict="reject" placeholder="Cidade" data-ng-model="pacienteModal.cidade" class="form-control"
+                    required>
+            </div>
+            <div class="form-group col-xs-12">
+                <label>
+                    <strong>Estado</strong>
+                </label>
+                <!-- <select>
+                    <option ng-value="state.value" data-ng-model="state.estado" ng-repeat="state in states" >{{state.estado}} - {{state.value}}</option>
+                </select> -->
+
+                <select ng-model="selected_state" 
+                        ng-options="state as state.estado for state in states" class="form-control">           
+                </select>      
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="cancel()">
+            Cancel
+        </button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" data-ng-disabled="form.$invalid">
+            Salvar
+        </button>
+    </div>
+</form>

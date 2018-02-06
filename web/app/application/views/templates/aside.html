@@ -1,0 +1,53 @@
+<aside id="sidebar" class="" ng-controller="AsideCtrl">
+	<ul class="sidebar-menu">
+		<li class="sidebar-dropdown sidebar-user hidden-md hidden-lg">
+			<span class="sidebar-link collapsed capitalize" data-toggle="collapse" data-target="#sidebar-user" aria-expanded="false">
+			  <i class="fa fa-user-circle-o sidebar-user-icon" aria-hidden="true"></i>
+                  {{actualUser.userName}}
+            </span>
+			<ul id="sidebar-user" class="sidebar-submenu collapse" aria-expanded="false" style="height: 0px">
+				<li>
+					<a href="" class="sidebar-submenu-link">
+                		{{'header.user.edtUser' | translate}}
+                    </a>
+				</li>
+				<li>
+					<a href="#/change-password" class="sidebar-submenu-link">
+                		{{'header.user.edtPassword' | translate}}
+                    </a>
+				</li>
+			</ul>
+		</li>
+		
+		<a ng-href="#/{{field.route}}" ng-repeat="field in navbarFields" uib-tooltip="{{field.name}}">
+			<li ng-class="selectedMenu(field)">
+				<span class="sidebar-link">
+					<i class="fa {{field.icon}} sidebar-user-icon" aria-hidden="true" ></i>
+					{{field.name}}
+				</span>
+
+			</li>
+		</a>
+
+		<a ng-href="#/{{field.route}}" ng-repeat="field in adminFields" ng-if="userRole == 'ROLE_ADMIN'" uib-tooltip="{{field.name}}">
+			<li ng-class="selectedMenu(field)">
+				<span class="sidebar-link">
+					<i class="fa {{field.icon}} sidebar-user-icon" aria-hidden="true" ></i>
+					{{field.name}}
+				</span>
+
+			</li>
+		</a>
+
+		<a ng-href="#/"></a>
+		
+		<a ng-click="logout()" class="sidebar-submenu-link hidden-md hidden-lg">
+			<li class="sidebar-user sidebar-links">
+				<span class="sidebar-link">
+					<i class="fa fa-sign-out sidebar-user-icon" aria-hidden="true" uib-tooltip="{{'header.logout' | translate}}"></i>
+					{{'header.logout' | translate}}
+				</span>
+			</li>
+		</a>
+	</ul>
+</aside>

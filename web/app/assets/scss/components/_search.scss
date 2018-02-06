@@ -1,0 +1,33 @@
+.search {
+	margin: 0 -15px;
+
+	.search-col {
+		font-size: 16px;
+		position: relative;
+		padding: 12px 8px 12px;
+		vertical-align: bottom;
+		display: inline-block;
+
+	}
+	.btn {
+		width: 100%;
+	}
+
+	@media (min-width: $screen-phone-min) {
+		display: inline-block;
+		padding: 0 7px;
+	}
+
+	.help-block {
+		@media (min-width: $screen-phone-min) {
+			position: absolute;
+			bottom: -20px;
+		}
+	}
+
+	.form-control {
+		@media (min-width: $screen-phone-min) {
+			width: auto;
+		}
+	}
+}

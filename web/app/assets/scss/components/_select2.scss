@@ -1,0 +1,21 @@
+.ui-select-bootstrap {
+    >.ui-select-match {
+        >.btn {
+            border-width: 1px;
+        }
+    }
+}
+
+.ui-select-bootstrap {
+    .ui-select-match-text {
+        span {
+            font-weight: normal;
+		}
+		
+		.btn-default {
+			&:hover {
+				background-color: transparent;
+			}
+		}
+    }
+}

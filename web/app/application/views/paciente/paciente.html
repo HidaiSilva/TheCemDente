@@ -1,0 +1,78 @@
+<div ng-include="'application/views/templates/header.html'"></div>
+<div ng-include="'application/views/templates/aside.html'"></div>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <h2>Paciente</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <button class="btn btn-primary btn-create" data-ng-click="pacienteCtrl.openModal()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          Cadastrar paciente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <div class="card">
+
+        <div class="table-responsive">
+          <table datatable="ng" dt-column-defs="dtColumnDefs" dt-options="dtOptions" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Ação</th>
+                <th>Nome</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Ação</th>
+                <th>Nome</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr ng-repeat="patient in patients">
+                <td>
+                  <button class="btn btn-default btn-circle" uib-tooltip="Editar" ng-click="pacienteCtrl.openModal(patient)">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-default btn-circle" uib-tooltip="Excluir" ng-click="pacienteCtrl.openModalConfirmation(patient)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </button>
+                </td>
+                <td>{{patient.nome}}</td>
+                <td>{{patient.rg}}</td>
+                <td>{{patient.cpf}}</td>
+                <td>{{patient.endereco}}</td>
+                <td>{{patient.numero}}</td>
+                <td>{{patient.bairro}}</td>
+                <td>{{patient.cidade}}</td>
+                <td>{{patient.estado}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
